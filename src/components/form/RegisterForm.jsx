@@ -1,33 +1,43 @@
 import { Link } from "react-router-dom";
-import Button from "../Ui/Button";
+import Button from "@Ui/Button";
 import FormInput from "./FormInput";
 import FormModelAuth from "@models/form-model-auth";
-import { useEffect, useState } from "react";
-// import Loader from "../Loader";
-import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
+import Loader from "../Loader";
+import { toast } from "react-hot-toast";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@firebase/config";
 
 const RegisterForm = () => {
-  const [first_Name, setFirst_Name] = useState("");
-  const [last_Name, setLast_Name] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignup = (e) => {
     e.preventDefault();
     if (password !== cpassword) {
       toast.error("Password don't match.");
     }
+    setIsLoading(true);
+    createUserWithEmailAndPassword(auth, name, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        setIsLoading(false);
+        toast.success("Registration Successful...");
+        window.location = "/login";
+      })
+      .catch((error) => {
+        toast.error(error.msg);
+        setIsLoading(false);
+      });
   };
- 
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
   return (
     <>
-      <ToastContainer />
-
+      {isLoading && <Loader />}
       <FormModelAuth ttl=" Hello,Friend !" disc="Create a new account">
         <form
           className="flex flex-col items-center gap-3"
@@ -36,14 +46,8 @@ const RegisterForm = () => {
           <FormInput
             type="text"
             placeholder="First_Name"
-            value={first_Name}
-            onChange={(e) => setFirst_Name(e.target.value)}
-          />
-          <FormInput
-            type="text"
-            placeholder="Last_Name"
-            value={last_Name}
-            onChange={(e) => setLast_Name(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <FormInput
             type="text"

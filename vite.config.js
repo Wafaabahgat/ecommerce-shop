@@ -11,8 +11,10 @@ export default defineConfig({
       "@assets": path.resolve("./src/assets"),
       "@components": path.resolve("./src/components"),
       "@pages": path.resolve("./src/pages"),
+      "@Ui": path.resolve("./src/components/Ui"),
       "@lib": path.resolve("./src/lib"),
       "@models": path.resolve("./src/models"),
+      "@firebase": path.resolve("./src/firebase"),
     },
   },
 });
