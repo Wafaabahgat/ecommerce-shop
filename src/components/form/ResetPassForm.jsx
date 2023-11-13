@@ -18,7 +18,6 @@ const ResetPassForm = () => {
           className="text-white font-bold w-[500px] hover:text-color_danger mb-5"
         />
       </div>
-     
     </FormModelAuth>
   );
 };
