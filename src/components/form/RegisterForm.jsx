@@ -6,7 +6,7 @@ import { useState } from "react";
 import Loader from "../Loader";
 import { toast } from "react-hot-toast";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@firebase/config";
+import { auth } from "../../Firebases/config";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
