@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { getApp, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
@@ -10,11 +10,16 @@ const firebaseConfig = {
   projectId: "ecommerce-shop-7104f",
   storageBucket: "ecommerce-shop-7104f.appspot.com",
   messagingSenderId: "54690480563",
-  appId: "1:54690480563:web:34ca86e77eba998cdacbc6"
+  appId: "1:54690480563:web:34ca86e77eba998cdacbc6",
 };
-
+let app;
+try {
+  app = getApp();
+} catch (error) {
+  app = initializeApp(firebaseConfig);
+}
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

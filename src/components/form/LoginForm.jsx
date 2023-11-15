@@ -7,9 +7,10 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  getAuth,
 } from "firebase/auth";
 import toast from "react-hot-toast";
-import { auth } from "../../Firebases/config";
+import app, { auth } from "../../Firebases/config";
 import Loader from "../Loader";
 
 const LoginForm = () => {
@@ -36,13 +37,14 @@ const LoginForm = () => {
   };
 
   // Login with Google///
+  const firebaseAuth = getAuth(app);
+
   const provider = new GoogleAuthProvider();
   const signinWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then(() => {
+    signInWithPopup(firebaseAuth, provider)
+      .then((result) => {
         // const user = result.user;
         toast.success("Login Successfully");
-        window.location = "/";
       })
       .catch((error) => {
         console.error("Firebase Authentication Error:", error);

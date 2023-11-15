@@ -12,6 +12,7 @@ import { cn } from "@lib/utils";
 
 const Button = ({
   className,
+  onClick,
   variant,
   type,
   size,
@@ -27,6 +28,7 @@ const Button = ({
           "border-2 flex items-center justify-center py-2 mt-4",
           className
         )}
+        onClick={onClick}
       >
         {text}
       </button>
