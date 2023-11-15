@@ -7,6 +7,7 @@ import Register from "@pages/auth/Register";
 import Login from "@pages/auth/Login";
 import ForgetPassword from "@pages/auth/Forget_password";
 import ResetPassword from "@pages/auth/Reset_password";
+import GuestUser from "./middleware/GuestUser";
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,19 @@ const router = createBrowserRouter([
 
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <GuestUser>
+            <Register />
+          </GuestUser>
+        ),
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <GuestUser>
+            <Login />
+          </GuestUser>
+        ),
       },
       {
         path: "/forgetPassword",

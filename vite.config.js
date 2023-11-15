@@ -14,7 +14,6 @@ export default defineConfig({
       "@Ui": path.resolve("./src/components/Ui"),
       "@lib": path.resolve("./src/lib"),
       "@models": path.resolve("./src/models"),
-      "@firebase": path.resolve("./src/firebase"),
     },
   },
 });

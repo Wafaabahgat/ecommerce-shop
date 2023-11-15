@@ -1,6 +1,6 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { IoIosLogOut } from "react-icons/io";
 
 const UserCard = () => {
   return (
@@ -26,6 +26,11 @@ const UserCard = () => {
                 <FaShoppingCart />
                 <span className="relative bottom-2 left-0">0</span>
               </Link>
+            </li>
+            <span className=" bg-slate-300 block h-[1px]"></span>
+            <li className="hover:text-color_danger p-4 flex items-center justify-center gap-1">
+              <IoIosLogOut />
+              <Link to="/login">Log out</Link>
             </li>
           </ul>
         </div>
