@@ -82,11 +82,6 @@ const RegisterForm = () => {
               type="submit"
               className="text-white font-bold w-[500px] hover:text-color_danger"
             />
-            <Button
-              text="Continue with email"
-              type="submit"
-              className=" text-black bg-blue-900  font-bold w-[500px] hover:text-white"
-            />
           </form>
 
           <div className="text-white flex item-center justify-center m-3">

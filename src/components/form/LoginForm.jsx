@@ -24,7 +24,7 @@ const LoginForm = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         console.log(user);
         setIsLoading(false);
         toast.success("Login Successful...");
@@ -65,13 +65,15 @@ const LoginForm = () => {
             <FormInput
               name="email"
               type="text"
+              autoComplete="username"
               placeholder="Enter your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <FormInput
               name="password"
-              type="text"
+              type="password"
+              autoComplete="current-password"
               placeholder="Enter your Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
