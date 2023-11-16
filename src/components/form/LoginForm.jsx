@@ -12,11 +12,13 @@ import {
 import toast from "react-hot-toast";
 import app, { auth } from "../../Firebases/config";
 import Loader from "../Loader";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ const LoginForm = () => {
         console.log(user);
         setIsLoading(false);
         toast.success("Login Successful...");
-        window.location = "/";
+        navigate("/");
       })
       .catch((error) => {
         toast.error(error.massage);
