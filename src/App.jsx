@@ -6,7 +6,7 @@ import Contact from "@pages/contact/Contact";
 import Register from "@pages/auth/Register";
 import Login from "@pages/auth/Login";
 import ForgetPassword from "@pages/auth/Forget_password";
-import GuestUser from "./middleware/GuestUser";
+// import GuestUser from "./middleware/GuestUser";
 
 const router = createBrowserRouter([
   {
@@ -26,19 +26,16 @@ const router = createBrowserRouter([
 
       {
         path: "/register",
-        element: (
-          <GuestUser>
-            <Register />
-          </GuestUser>
-        ),
+        element: <Register />,
       },
       {
         path: "/login",
-        element: (
-          <GuestUser>
-            <Login />
-          </GuestUser>
-        ),
+        element: <Login />,
+        // element: (
+        //   <GuestUser>
+        //     <Login />
+        //   </GuestUser>
+        // ),
       },
       {
         path: "/forgetPassword",

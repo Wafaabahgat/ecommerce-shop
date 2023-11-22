@@ -56,38 +56,54 @@ const UserCard = () => {
       <form className=" bg-color_white shadow-md rounded-md max-w-[400px] min-w-[210px] border-slate-400 border absolute top-16 right-1 z-50">
         <div className="text-xl">
           <ul className="text-dark_blue">
+            {/* name */}
             <ShowOnLogin>
               <li className="p-4">
                 <a className="flex gap-1 items-center">
                   <FaUserCircle />
-                  {displayName}
+                  Hi, {displayName}
                 </a>
               </li>
               <span className="bg-slate-300 block h-[1px] "></span>
             </ShowOnLogin>
 
+            {/* Login&&register */}
             <ShowOnLogout>
-              <li className="hover:text-color_danger p-4">
+              <li className="hover:text-color_danger p-4 text-center">
                 <Link to="/login">Login</Link>
               </li>
-              <span className="bg-slate-300 block h-[1px] "></span>
-              <li className="hover:text-color_danger p-4">
+              <span className="bg-slate-300 block h-[1px]"></span>
+              <li className="hover:text-color_danger p-4 text-center">
                 <Link to="/register">Register</Link>
               </li>
               <span className="bg-slate-300 block h-[1px] "></span>
             </ShowOnLogout>
 
-            <li className="hover:text-color_danger p-4">
-              <Link to="/orders">My Orders</Link>
-            </li>
-            <span className="bg-slate-300 block h-[1px]"></span>
-            <li className="hover:text-color_danger flex items-center justify-center p-4">
-              <Link to="/cart" className="flex items-center">
-                <span>Cart</span>
-                <FaShoppingCart />
-                <span className="relative bottom-2 left-0">0</span>
-              </Link>
-            </li>
+            {/* Orders */}
+            <ShowOnLogin>
+              <li className="hover:text-color_danger p-4 text-center">
+                <Link to="/orders">My Orders</Link>
+              </li>
+              <span className="bg-slate-300 block h-[1px]"></span>
+            </ShowOnLogin>
+
+            {/* Cart */}
+            <ShowOnLogin>
+              <li className=" flex items-center justify-center p-4">
+                <Link
+                  to="/cart"
+                  className="flex items-center hover:text-color_danger"
+                >
+                  <span>Cart</span>
+                  <FaShoppingCart />
+                  <span className="relative bottom-2 -left-1 text-center bg-color_danger rounded-full w-[22px] h-[22px]">
+                    0
+                  </span>
+                </Link>
+              </li>
+            </ShowOnLogin>
+
+            {/* Logout */}
             <ShowOnLogin>
               <span className=" bg-slate-300 block h-[1px]"></span>
               <li className="hover:text-color_danger p-4 flex items-center justify-center gap-1">

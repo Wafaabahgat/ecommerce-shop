@@ -43,7 +43,7 @@ const RegisterForm = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <FormModelAuth ttl=" Hello,Friend !" disc="Create a new account">
+        <FormModelAuth ttl=" Hello, Friends!" disc="Create a new account">
           <form
             className="flex flex-col items-center gap-3"
             onSubmit={handleSignup}

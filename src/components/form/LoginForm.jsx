@@ -23,6 +23,7 @@ const LoginForm = () => {
   const handleSignin = (e) => {
     e.preventDefault();
     setIsLoading(true);
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -42,6 +43,7 @@ const LoginForm = () => {
   const firebaseAuth = getAuth(app);
 
   const provider = new GoogleAuthProvider();
+
   const signinWithGoogle = () => {
     signInWithPopup(firebaseAuth, provider)
       .then((result) => {
@@ -59,7 +61,7 @@ const LoginForm = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <FormModelAuth ttl=" Hello,Friend !" disc="Log in to continue">
+        <FormModelAuth ttl=" Hello, Friends!" disc="Log in to continue">
           <form
             className="flex flex-col items-center gap-3"
             onSubmit={handleSignin}

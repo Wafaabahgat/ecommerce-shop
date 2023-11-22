@@ -1,4 +1,3 @@
-import React from "react";
 import MetaDate from "@lib/metaDate";
 import LoginForm from "@components/form/LoginForm";
 
